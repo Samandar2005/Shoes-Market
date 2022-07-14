@@ -1,0 +1,35 @@
+{% load static %}
+<link rel="stylesheet" href={% static 'css/style2.css' %}>
+<link rel="stylesheet" href={% static 'css/style3.css' %}>
+
+
+<div class="container">
+  <form action="" method="get">
+    <input class="input" type="text" placeholder="name" name="name"  value="{{request.COOKIES.name}}"/>
+    <input class="search" type="submit" value="Search" />
+  </form>
+
+  <div class="add">
+    <a href="{% url 'compound-add' %}">Add</a>
+  </div>
+  <table style="width: 100%;">
+    <tr>
+      <th>Name</th>
+      <th>Change</th>
+      <th>Delete</th>
+    </tr>
+    {% for item in compound %}
+    <tr>
+      <td>{{item.name}}</td>
+      <td>
+        {% if perms.home.can_change_compound %}
+          <a class="my" href="{% url 'compound-change' item.id %}">Change</a>
+        {% endif %}</td>
+      <td>
+        {% if perms.home.can_delete_compound %}
+          <a  class="my"href="{% url 'compound-delete' item.id %}">Delete</a>
+        {% endif %}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>

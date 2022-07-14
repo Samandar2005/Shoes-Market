@@ -1,0 +1,60 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style3.css' %}">
+<link rel="stylesheet" href="{% static 'css/style2.css' %}">
+<style>
+  .my:hover{
+    color: rgba(0, 0, 0, 0.342);
+
+  }
+</style>
+
+
+<div class="container">
+  <form action="" method="get">
+    <input class="input" type="text" placeholder="name" name="name"  value="{{request.COOKIES.name}}"/>
+    <input class="input" type="text" placeholder="brand" name="brand"/>
+    <input class="input" type="text" placeholder="company" name="company" />
+    <input class="input" type="text" placeholder="color" name="color"/>
+    <input class="input" type="text" placeholder="material" name="material"/>
+    <input class="input" type="number" placeholder="the_size" name="the_size"/>
+    <input class="input" type="number" placeholder="price" name="price"/>
+    <input class="input" type="date" name="from_date"/>
+    <input class="input" type="date" name="to_date"/>
+
+    <input class="search" type="submit" value="Search" />
+  </form>
+
+  <div class="add">
+    <a href="{% url 'shoes-add' %}">Add</a>
+  </div>
+  <table style="width: 100%;">
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Color</th>
+      <th>The size</th>
+      <th>Compound</th>
+      <th>Date</th>
+      <th>Change</th>
+      <th>Delete</th>
+    </tr>
+    {% for item in shoes %}
+    <tr>
+      <td>{{item.name}}</td>
+      <td>{{item.brand}}</td>
+      <td>{{item.color}}</td>
+      <td>{{item.the_size}}</td>
+      <td>{{item.сompound}}</td>
+      <td>{{item.date}}</td>
+      <td>
+        {% if perms.home.can_change_book %}
+          <a class="my" href="{% url 'shoes-change' item.id %}">Change</a>
+        {% endif %}</td>
+      <td>
+        {% if perms.home.can_delete_book %}
+          <a  class="my"href="{% url 'shoes-delete' item.id %}">Delete</a>
+        {% endif %}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>

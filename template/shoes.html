@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>{% block title %}Shoes{% endblock %}</title>
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+	<!-- header section start -->
+	<!-- New Arrivals section start -->
+  <div class="collection_text">Shoes</div>
+  {% block shoes %}
+  <div>
+      <div class="collection_section layout_padding">
+    	<div class="container">
+    		<h1 class="new_text"><strong>New Arrivals Products</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	</div>
+      </div>
+      <div class="layout_padding gallery_section">
+         <div class="container">
+            <ul class="myul">
+               {% for item in shoes %}
+               <li class="myli">
+                  <div class="best_shoes">
+                     <p class="best_text">{{item.name}}</p>
+                     <div class="shoes_icon"><img src="/{{item.img}}"></div>
+                     <div class="star_text">
+                        <div class="left_part" >
+                           <p class="p">Brand: {{item.brand}}</p>
+                           <p class="p">Color: {{item.color}}</p>
+                           <p class="p">Compound: {{item.сompound}}</p>
+                           <p class="p">The size: {{item.the_size}}</p>
+                           <p class="p">Date: {{item.date}}</p>
+                           <ul>
+                                 <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                                 <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                                 <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                                 <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                                 <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                           </ul>
+                        </div>
+                        <div class="right_part">
+                           <div class="shoes_price">$ <span style="color: #ff4e5b;">{{item.price}}</span></div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               {% endfor %}
+            </ul>
+
+            </div>
+      </div>
+   </div>
+   {% endblock %}
+   	<!-- New Arrivals section end -->
+	<!-- section footer start -->
+	<!-- section footer end -->
+	<div class="copyright">2019 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></div>
+
+
+      <!-- Javascript files-->
+      <script src={% static 'js/jquery.min.js' %} ></script>
+      <script src={% static 'js/popper.min.js' %}></script>
+      <script src={% static 'js/bootstrap.bundle.min.js' %}></script>
+      <script src={% static 'js/jquery-3.0.0.min.js' %}></script>
+      <script src={% static 'js/plugin.js' %}></script>
+      <!-- sidebar -->
+      <script src={% static 'js/jquery.mCustomScrollbar.concat.min.js' %}></script>
+      <script src={% static 'js/custom.js' %}></script>
+      <!-- javascript -->
+      <script src={% static 'js/owl.carousel.js' %}></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+      </script>
+   </body>
+</html>

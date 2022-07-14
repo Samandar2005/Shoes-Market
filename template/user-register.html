@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Mohithpoojary</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'><link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+</head>
+<style>
+	.button__text{
+		background-color: white;
+		border: none;
+	}
+  .screen{
+    height: 900px;
+  }
+  .container{
+    min-height: 150vh;
+  }
+</style>
+<body>
+ <div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form action="" method="post" class="login">
+				{% csrf_token %}
+				<div class="login__field">
+					<i class="login__icon fa fa-address-book"></i>
+					<input class="login__input" type="text" placeholder="Last Name" name="last_name" maxlength="150" id="id_last_name">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fa fa-address-card"></i>
+					<input class="login__input" type="text" placeholder="First Name" name="first_name" maxlength="150" id="id_first_name">
+				</div>
+        <div class="login__field">
+					<i class="login__icon fa fa-user-circle"></i>
+					<input class="login__input" type="text" placeholder="User Name" name="username" maxlength="150" required id="id_username">
+				</div>
+        <div class="login__field">
+					<i class="login__icon fa fa-envelope"></i>
+					<input class="login__input" type="email" placeholder="Email" name="email" maxlength="254" id="id_email">
+				</div>
+
+        <div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input class="login__input" type="password" placeholder="Password" name="password" maxlength="128" required id="id_password"></p>
+				</div>
+        <div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input class="login__input" type="password" placeholder="onfirm" name="confirm" required id="id_confirm"></p>
+				</div>
+				<button class="button login__submit">
+					 <input class="button__text" type="submit" value="Submit">
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>
+			</form>
+			<div>
+				{% if not_found%}
+						<p style="color: red;">The username or password incorrect. Please try again</p>
+				{% endif %}
+			</div>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+
+<!-- <div>
+  {% if not_found%}
+      <p style="color: red;">The username or password incorrect. Please try again</p>
+  {% endif %}
+</div>
+
+<div>
+  <form action="" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Submit">
+  </form>
+</div> -->

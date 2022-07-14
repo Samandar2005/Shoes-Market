@@ -1,0 +1,83 @@
+{% load static %}
+<link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
+<link rel="stylesheet" href={% static 'css/style.css' %}>
+<link rel="stylesheet" href={% static 'css/jquery.mCustomScrollbar.min.css' %}>
+<link rel="stylesheet" href={% static 'css/main2.css' %}>
+<style>
+  .my:hover{
+    color: rgba(0, 0, 0, 0.342);
+
+  }
+</style>
+
+{% if perms.home.can_add_book %}
+  <a class="man" href="{% url 'shoes-add' %}">Add</a>
+{% endif %}
+
+
+<form action="" method="get">
+  <input class="input" type="text" placeholder="name" name="name"  value="{{request.COOKIES.name}}"/>
+  <input class="input" type="text" placeholder="brand" name="brand"/>
+  <input class="input" type="text" placeholder="company" name="company" />
+  <input class="input" type="text" placeholder="color" name="color"/>
+  <input class="input" type="text" placeholder="material" name="material"/>
+  <input class="input" type="number" placeholder="the_size" name="the_size"/>
+  <input class="input" type="number" placeholder="price" name="price"/>
+  <input class="input" type="date" name="from_date"/>
+  <input class="input" type="date" name="to_date"/>
+
+  <input class="search" type="submit" value="Search" />
+</form>
+
+<br>
+<br>
+
+
+<div class="layout_padding gallery_section">
+  <div class="containerq">
+    <ul class="myul">
+      {% for item in shoes %}
+      <li class="myli">
+        <div class="best_shoes">
+          <p class="best_text">{{item.name}}</p>
+          <div class="shoes_icon"><img src="/{{item.img}}"></div>
+
+          <div class="star_text">
+            <div class="left_part" >
+              <p class="p">Brand: {{item.brand}}</p>
+              <p class="p">Color: {{item.color}}</p>
+              <p class="p">The size: {{item.the_size}}</p>
+              <p class="p">Compound: {{item.сompound}}</p>
+              <p class="p">Date: {{item.date}}</p>
+              <ul>
+                  <li><a href=""><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                </ul>
+            </div>
+            <div class="right_part">
+              <div class="shoes_price">$ <span style="color: #ff4e5b;">{{item.price}}</span></div>
+            </div>
+          </div>
+          <div class="hello">
+            {% if perms.home.can_change_book %}
+              <a class="my" href="{% url 'shoes-change' item.id %}">Change</a>
+            {% endif %}
+
+            {% if perms.home.can_delete_book %}
+              <a  class="my"href="{% url 'shoes-delete' item.id %}">Delete</a>
+            {% endif %}
+
+            {% if 'Xaridor' in user.groups.all.0.name %}
+              <a class="my" href="{% url 'order' %}">Order</a>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    </div>
+  </div>
+</div>

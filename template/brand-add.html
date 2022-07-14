@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/input.css' %}">
+{% if brand %}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="input" type="hidden" name="pk" value={{brand.id}}>
+    <input type="text" class="input" name="name" placeholder="barnd name" value={{brand.name}}> <br><br>
+    <input  type="submit" class="input1" value="Change">
+</form>
+{% else %}
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" class="input" name="name" placeholder="brand name"> <br><br>
+    <input type="submit" class="input1" value="Create">
+</form>
+
+{% endif %}

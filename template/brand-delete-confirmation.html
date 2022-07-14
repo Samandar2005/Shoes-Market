@@ -1,0 +1,26 @@
+
+<style>
+  .hello{
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    color: white;
+    background-color: black;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+
+</style>
+<form class="main" action="" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="pk" value={{brand.id}}>
+  {{brand.name}} o'chirilsinmi? <br><br>
+  <input class="hello" type="submit" value="Ha">
+  <div class="hello">
+    <a  href="{% url 'brand' %}">Yo'q</a>
+  </div>
+
+</form>

@@ -1,0 +1,99 @@
+
+{% load static %}
+
+{% block content %}
+
+<style>
+  .myli {
+    max-width: 367px;
+    min-width: 367px;
+    width: 367px;
+    max-height: 800px;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: inline-flex;
+    border-radius: 20px;
+  }
+  .main_a{
+    text-decoration: none;
+    color: white;
+  }
+  .best_shoes{
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px lightblue;
+
+  }
+  .p{
+    height: 20px;
+    width: 300px;
+  }
+  .buy_text{
+    border-radius: 20px;
+    box-shadow: 10px 5px 10px black;
+  }
+  </style>
+
+<div class="layout_padding gallery_section">
+  <div class="container">
+    <ul class="myul">
+      {% for item in shoes %}
+      <li class="myli">
+        <div class="best_shoes">
+          <p class="best_text">{{item.name}}</p>
+          <div class="shoes_icon"><img src="/{{item.img}}"></div>
+          <div class="star_text">
+            <div class="left_part" >
+              <p class="p">Brand: {{item.brand}}</p>
+              <p class="p">Color: {{item.color}}</p>
+              <p class="p">Compound: {{item.сompound}}</p>
+              <p class="p">The size: {{item.the_size}}</p>
+              <p class="p">Date: {{item.date}}</p>
+              <ul>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+                  <li><a href="#"><img src={% static 'images/star-icon.png' %}></a></li>
+              </ul>
+            </div>
+            <div class="right_part">
+              <div class="shoes_price">$ <span style="color: #ff4e5b;">{{item.price}}</span></div>
+            </div>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    </div>
+    <div class="buy_now_bt">
+      <button href="companiy/"  class="buy_text">
+        <a class="main_a" href="{% url 'brand' %}">Brand</a>
+      </button>
+    </div>
+    <div class="buy_now_bt">
+      <button class="buy_text">
+        <a class="main_a" href="{% url 'company' %}">Company</a>
+        </button>
+    </div>
+
+
+    <div class="buy_now_bt">
+      <button class="buy_text">
+        <a class="main_a" href="{% url 'compound' %}">Compound</a>
+        </button>
+    </div>
+    <div class="buy_now_bt">
+      <button class="buy_text">
+        <a class="main_a" href="{% url 'material' %}">Material</a>
+        </button>
+    </div>
+    <div class="buy_now_bt">
+      <button href="shoes/" class="buy_text">
+        <a class="main_a" href="{% url 'shoes' %}">Shoes</a>
+      </button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

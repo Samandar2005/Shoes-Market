@@ -1,0 +1,43 @@
+{% load static %}
+<link rel="stylesheet" href={% static 'css/style2.css' %}>
+<link rel="stylesheet" href={% static 'css/style3.css' %}>
+
+
+<div class="container">
+  <form action="" method="get">
+    <input class="input" type="text" placeholder="title" name="title"  value="{{request.COOKIES.name}}"/>
+    <input class="input" type="text" placeholder="workers" name="workers"/>
+    <input class="input" type="text" placeholder="annual_income" name="annual_income" />
+    <input class="search" type="submit" value="Search" />
+  </form>
+
+  <div class="add">
+    <a href="{% url 'company-add' %}">Add</a>
+  </div>
+  <table style="width: 100%;">
+    <tr>
+      <th>Title</th>
+      <th>Workers</th>
+      <th>Annual income</th>
+      <th>Email</th>
+      <th>Change</th>
+      <th>Delete</th>
+    </tr>
+    {% for item in company %}
+    <tr>
+      <td>{{item.title}}</td>
+      <td>{{item.workers}}</td>
+      <td>{{item.annual_income}}</td>
+      <td>{{item.email}}</td>
+      <td>
+        {% if perms.home.can_change_company %}
+          <a class="my" href="{% url 'company-change' item.id %}">Change</a>
+        {% endif %}</td>
+      <td>
+        {% if perms.home.can_delete_company %}
+          <a  class="my"href="{% url 'company-delete' item.id %}">Delete</a>
+        {% endif %}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>

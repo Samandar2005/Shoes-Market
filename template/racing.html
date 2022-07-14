@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Racing Boot</title>
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+	<!-- header section start -->
+	<!-- new collection section start -->
+  <div class="collection_text">{% block title %}Racing Boots{% endblock %}</div>
+  {% block about_main %}
+  <div class="collection_text">Racing Boots</div>
+   <div class="about_main layout_padding">
+    <div class="collection_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>Racing Boots</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	</div>
+    </div>
+    <div class="collectipn_section_3 layout_padding">
+    	<div class="container">
+    		<div class="racing_shoes">
+    			<div class="row">
+    				<div class="col-md-8">
+    					<div class="shoes-img3"><img src={% static 'images/shoes-img3.png' %}></div>
+    				</div>
+    				<div class="col-md-4">
+    					<div class="sale_text"><strong>Sale <br><span style="color: #0a0506;">JOGING</span> <br>SHOES</strong></div>
+    					<div class="number_text"><strong>$ <span style="color: #0a0506">100</span></strong></div>
+    					<button class="seemore">See More</button>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    </div>
+  {% endblock %}
+	<!-- new collection section end -->
+	<!-- section footer start -->
+	<!-- section footer end -->
+	<div class="copyright">2019 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></div>
+   </body>
+</html>

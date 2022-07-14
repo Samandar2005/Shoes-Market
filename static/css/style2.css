@@ -1,0 +1,67 @@
+.main_a{
+  text-decoration: none;
+  color: white;
+}
+.main_a1{
+  text-decoration: none;
+  color: black;
+}
+.input{
+  width: 150px;
+  height: 30px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+}
+.input1{
+    text-align: center;
+    width: 70px;
+    height: 30px;
+    border-radius: 30px;
+    color: white;
+    background-color: black;
+}
+.myli {
+  max-width: 367px;
+  min-width: 367px;
+  max-height: 700px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: inline-flex;
+  border-radius: 20px;
+}
+.hello{
+  text-align: center;
+}
+.man:hover{
+  color: rgba(0, 0, 0, 0.354);
+}
+.main_a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.best_shoes{
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px lightblue;
+
+}
+.p{
+  height: 20px;
+  width: 300px;
+}
+.buy_text{
+  border-radius: 20px;
+  box-shadow: 10px 5px 10px black;
+}
+.input{
+  width: 140px;
+  border-radius: 20px;
+
+}
+.search{
+  width: 70px;
+  border-radius: 10px;
+}
